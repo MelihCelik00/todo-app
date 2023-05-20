@@ -3,6 +3,10 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
+var cors = require('cors')
+const port = process.env.PORT || 8080
+
+require('dotenv').config();
 
 var indexRouter = require('./routes/api.route');
 var usersRouter = require('./routes/users');
@@ -14,6 +18,7 @@ app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
 
 
+app.use(cors())
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
@@ -40,8 +45,8 @@ app.use(function(err, req, res, next) {
 });
 
 
-app.listen(process.env.PORT,() => {
-  console.log(`Server running on port http://localhost:${process.env.PORT}`)
-})
+app.listen(() => {
+  console.log(`Server running on port http://localhost:${port}`)
+});
 
 module.exports = app;
