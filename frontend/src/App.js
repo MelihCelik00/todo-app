@@ -1,23 +1,24 @@
-import logo from './logo.svg';
-import './App.css';
+import ListHeader from "./components/ListHeader";
+import { useEffect } from "react";
 
-function App() {
+const App = () => {
+
+  const getData = async () => {
+    const userId = 1;
+    try {
+      const response = await fetch(`http://localhost:8080/api/todo/${userId}`);
+      const json = await response.json();
+      console.log(json);
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
+  useEffect(() => { getData() }, []);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="app">
+      <ListHeader listName={'To-Do App'}/>
     </div>
   );
 }
