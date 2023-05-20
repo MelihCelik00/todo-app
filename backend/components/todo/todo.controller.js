@@ -23,6 +23,12 @@ async function getTasks(req, res, next) {
                 UserId: req.params.userId
             }
         });
+
+        // Added cache control headers to prevent browser from caching API response and returning old data with 304 status code
+        res.header("Cache-Control", "no-cache, no-store, must-revalidate");
+        res.header("Pragma", "no-cache");
+        res.header("Expires", 0);
+        
         return res.status(200).json({ message: "Successfully retrieved all todo tasks.", data: todos });
     } catch (error) {
         next(error);
