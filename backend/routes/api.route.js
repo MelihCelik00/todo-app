@@ -7,7 +7,7 @@ router.get('/', function(req, res, next) {
   res.render('index', { title: 'To-Do App' });
 });
 
-router.use('/auth', require('../components/auth.route'));
-router.use('/todo', require('../components/todo.route'));
+router.use('/auth', require('../components/auth/auth.route'));
+router.use('/todo', require('../components/todo/todo.route'));
 
 module.exports = router;
