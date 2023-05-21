@@ -1,10 +1,12 @@
 import { Button } from "@mui/material";
 import { useState } from 'react';
+import { useCookies } from 'react-cookie';
 
 const TaskModal = ({ mode, setShowModal, getData, task }) => {
+  const [cookies, setCookie, removeCookie] = useCookies(null);
   const editMode = mode === "edit" ? true : false
   const [data, setData] = useState({
-    user_id: editMode ? task.UserId : null, // hardcoded 1 here
+    user_id: editMode ? task.UserId : cookies.UserId, // hardcoded 1 here
     title: editMode ? task.title : "",
     status: false
   });

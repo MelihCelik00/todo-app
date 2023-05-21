@@ -3,12 +3,16 @@ import AddIcon from '@mui/icons-material/Add';
 import ExitToAppIcon from '@mui/icons-material/ExitToApp';
 import TaskModal from "./TaskModal";
 import { useState } from 'react';
+import { useCookies } from 'react-cookie';
 
 const ListHeader = ({ listName, getData }) => {
+  const [cookies, setCookie, removeCookie] = useCookies(null);
   const [showModal, setShowModal] = useState(false);
 
   const signOut = () => {
-    console.log("Signing out...");
+    removeCookie('UserId');
+    removeCookie('AuthToken');
+    window.location.reload();
   };
 
   return (

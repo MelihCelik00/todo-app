@@ -40,7 +40,7 @@ const ListItem = ({ task, getData }) => {
         <Button className="edit" onClick={() => setShowModal(true)} variant="contained" color="secondary" endIcon={<EditIcon />}>
           Edit
         </Button>
-        <Button className="delete" onClick={deleteItem} variant="contained" color="warning" endIcon={<DeleteIcon />}>
+        <Button className="delete" onClick={() => deleteItem} variant="contained" color="warning" endIcon={<DeleteIcon />}>
           Delete
         </Button>
         {showModal && <TaskModal mode={ "edit"} setShowModal={setShowModal} getData={getData} task={task}/>}
