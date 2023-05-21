@@ -57,14 +57,12 @@ const TaskModal = ({ mode, setShowModal, getData, task }) => {
   };
 
   const handleChange = (e) => {
-    console.log("Handling change...", e);
     const { name, value } = e.target;;
 
     setData((data) => ({
       ...data,
       [name]: value
     }))
-    console.log(data);
   };
 
   return (
