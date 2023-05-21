@@ -29,7 +29,7 @@ async function getTasks(req, res, next) {
         res.header("Pragma", "no-cache");
         res.header("Expires", 0);
         
-        return res.status(200).json({ message: "Successfully retrieved all todo tasks.", data: todos });
+        return res.status(200).json(todos);
     } catch (error) {
         next(error);
     }
