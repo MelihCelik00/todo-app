@@ -19,6 +19,7 @@ const ListHeader = ({ listName, getData }) => {
     <div className="list-header">
       <h1>{listName}</h1>
       <div className="button-container">
+
         <Button className="add-task" onClick={() => setShowModal(true)} color="success" variant="contained" endIcon={<AddIcon />}>
           Add New Task
         </Button>
