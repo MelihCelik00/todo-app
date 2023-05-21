@@ -1,3 +1,7 @@
+import { Button } from "@mui/material";
+import AddIcon from '@mui/icons-material/Add';
+import ExitToAppIcon from '@mui/icons-material/ExitToApp';
+
 const ListHeader = ({ listName }) => {
 
   const signOut = () => {
@@ -8,8 +12,12 @@ const ListHeader = ({ listName }) => {
     <div className="list-header">
       <h1>{listName}</h1>
       <div className="button-container">
-        <button className="add-task">Add Task</button>
-        <button className="sign-out" onClick={signOut}>Sign Out</button>
+        <Button className="add-task" color="success" variant="contained" endIcon={<AddIcon />}>
+          Add Task
+        </Button>
+        <Button className="sign-out" onClick={signOut} color="error" variant="contained" endIcon={<ExitToAppIcon />}>
+          Sign Out
+        </Button>
       </div>
     </div>
   );
